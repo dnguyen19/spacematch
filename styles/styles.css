@@ -1,0 +1,233 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    height: 100%;
+    margin:0;
+    background-color: #26136E;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-top:0;
+}
+
+span, button {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* start page */
+main {
+    background-image: url("../images/mousemove-stars.png");
+    background-size: calc(90% + 50px);
+    height: 100vh;
+    position: relative;
+}
+
+button{
+    cursor: pointer;
+}
+
+.start-page {
+    background: url("../images/mousemove-planet.png");
+    background-size: calc(100% + 50px);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    text-align: center;
+}
+
+/* center start page and popout message */
+.start-page-text, .popout-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.start-page-text h1 {
+    color: white;
+    margin-bottom: 40px;
+    text-shadow: 0 0 7px white;
+    font-size: 5em;
+}
+
+/* buttons */
+.btn-pink {
+    color: white;
+    background-color:#E8004D;
+    box-shadow: 0 3px 0 #BE0040;
+    padding: 10px 30px;
+    border-radius: 3px;
+    border: #E8004D solid 1px;
+}
+
+.btn-pink:hover {
+    background-color: #FF1A66;
+}
+
+.btn-outline {
+    color: #E8004D;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 9px 30px;
+    border-radius: 3px;
+    border: #E8004D solid 3px;
+}
+
+.btn-outline:hover {
+    border: #FF1A66 solid 3px;
+    color: #FF1A66;
+}
+
+/* game page */
+.game-page{
+    display: none;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+/* scoreboard */
+.scoreboard {
+    z-index: 2;
+    width: 20%;
+    height: auto;
+    background-color:rgba(0, 0, 0, 0.37);
+    text-align: center;
+    padding: 50px 15px;
+    position: absolute;
+    top:20%;
+    left:10%;
+}
+
+.scoreboard-track {
+    margin-bottom: 50px;
+    color: white;
+}
+
+.scoreboard-track h4 {
+    margin-bottom: 10px;
+}
+.scoreboard-track hr {
+    margin-bottom: 15px;
+}
+#moves, #score {
+    font-size: 2em;
+}
+
+.score, .moves {
+    display: inline-block;
+    width:45%;
+    padding: 10px;
+}
+
+
+/* gameboard with cards */
+.gameboard {
+    position: absolute;
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    right: 10%;
+    top: 10%;
+}
+.card {
+    flex: 1 0 20%;
+    background-color: #190D46;
+    margin: 10px;
+    height: 40%;
+    width:20%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .4s;
+    text-align: center;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.card img {
+    width: 50%;
+    top:25%;
+    left:25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+} 
+.card .back-card {
+    opacity: 0.2;
+}
+.card .front-card {
+    transform: rotateY(180deg);
+}
+.card.flipped, .card.flipped:hover{
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+.card:hover {
+    box-shadow: 4px 8px 12px 0 rgba(0, 0, 0, 0.199);
+    transform: translatey(-4px);
+}
+
+/* popout message */
+.popout {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.63);
+    z-index: 2;
+    color: white;
+}
+
+.popout-message {
+    background-color: #190D46;
+    text-align: center;
+    border: rgba(255, 255, 255, 0.055) solid 5px;
+    border-radius: 5px;
+    width: 30%;
+    padding:30px
+}
+
+.popout-message-btn{
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.popout-message-btn button{
+    margin:20px;
+}
+
+.popout, .restart-message, .win-message {
+    display: none;
+}
+
+.your-score {
+    background-color: #120933;
+    width: 50%;
+    padding: 30px;
+    margin: 30px auto;
+}
+
+.total-score {
+    font-size: 2em;
+    margin-bottom: 100px;
+}
+
+h5:last-of-type{
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
